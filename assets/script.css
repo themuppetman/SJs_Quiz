@@ -1,4 +1,4 @@
-* {
+ * {
     margin: 0;
     padding: 0;
     background-color: #2e2d2d;
@@ -11,30 +11,67 @@ body {
     color: aliceblue;
 }
 
-#quiz-container {
+.app {
+    background: #2d2d2d;
+    width: 80%;
     max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #514545;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 100px auto 0;
+    border-radius: 10px;
+    padding: 30px;
 }
 
-h1 {
+.app h1{
+    font-size: 25px;
     color: aliceblue;
+    font-weight: 600;
+    border-bottom: 1px solid #bd2121;
 }
 
-.option {
+.quiz {
+    padding: 20px 0;
+}
+
+.quiz h2 {
+    font-size: 18px;
+    color: rgb(227, 77, 17);
+    font-weight: 500;
+}
+
+.btn {
+    background-color: whitesmoke;
+    color: rgb(224, 53, 61);
+    font-weight: 500;
+    width: 100%;
+    border: 1px solid #222;
+    padding: 10px;
     margin: 10px 0;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .3s;
 }
 
-#submit-button {
-    padding: 10px 20px;
-    font-size: 16px;
+.btn:hover {
+    background-color: #222;
+    color: #fff;
+}
+
+#next-btn {
+    background-color: #fff;
+    color: #222;
+    background-color: rgb(193, 184, 184);
+    color: #bd2121;
+    font-weight: 500;
+    width: 25%;
+    border: 1px solid #222;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    border-radius: 4px;
     cursor: pointer;
 }
 
-#result {
-    font-weight: bold;
-    margin-top: 20px;
+.next-btn:hover {
+    background-color: #222;
+    color: #fff;
 }

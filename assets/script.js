@@ -7,9 +7,9 @@ const selectOption = [
     {
         question: "Who originally wrote Javascript?",
         options: ["Tim Berners-lee", "Seth Jackson", "Brendan Eich", "Jordan Walke"],
-        correctAnswer: "Mars"
+        correctAnswer: "Brendan Eich"
     },
-    // Add more questions as needed
+    // Add more questions before submission
 ];
 
 const quizContainer = document.getElementById('quiz-container');
