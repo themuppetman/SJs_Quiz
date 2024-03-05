@@ -33,7 +33,7 @@ body {
 
 .quiz h2 {
     font-size: 18px;
-    color: rgb(227, 77, 17);
+    color: rgb(201, 217, 28);
     font-weight: 500;
 }
 
@@ -69,6 +69,7 @@ body {
     text-align: left;
     border-radius: 4px;
     cursor: pointer;
+    display: none;
 }
 
 .next-btn:hover {
