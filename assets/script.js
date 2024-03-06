@@ -19,6 +19,8 @@ const questions = [
     }
 ];
     // Questions not changing - s on const question
+const quizDiv = document.getElementById("quiz");
+const welcomeEl = document.getElementById("welcome-div");
 const startButton = document.getElementById("start-btn");
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
@@ -27,6 +29,19 @@ const nextButton = document.getElementById("next-btn");
 let currentQuestionIndex = 0;
 let score = 0;
 
+function showDiv(event) {
+    event.preventDefault(); 
+    quizDiv.style.display = "block";
+};
+
+startButton.addEventListener("click", showDiv);
+
+function removeWelcome(event) {
+    event.preventDefault();
+    welcomeEl.style.display = "none";
+}
+// Woo Hoo! 
+startButton.addEventListener("click", removeWelcome);
 
 function startQuiz() {
     currentQuestionIndex = 0;

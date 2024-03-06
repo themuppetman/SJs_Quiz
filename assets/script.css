@@ -27,9 +27,10 @@ body {
     border-bottom: 1px solid #bd2121;
 }
 
-.quiz {
+/* quiz needed to be an id */
+#quiz {
     padding: 20px 0;
-    display: block;
+    display: none;
 }
 
 .quiz h2 {
