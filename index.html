@@ -9,6 +9,13 @@
 <body>
     <div class="app">
         <h1>Code Quiz</h1>
+        <div>
+            <p>You have 30 seconds to answer 4 Fullstack questions.
+               For every incorrect answer you will loose 5 secs. 
+               Good luck!
+            </p>
+        </div>
+        <button onclick="showDiv()" id="start-btn">Start</button>
         <div class="quiz">
             <h2 id="question">Question Goes Here</h2> 
             <div id="answer-buttons">
@@ -19,7 +26,9 @@
             </div>
             <button id="next-btn">Next</button>
         </div>
-        <p id="result"></p>
+        <div class="container-timer">
+            <h5 class="card-text float-right font-weight-bold">Total Time : <br> (00: <span id="time">00</span>)</h5>
+        </div>
     </div>
 <script src="assets/script.js"></script>
 </body>

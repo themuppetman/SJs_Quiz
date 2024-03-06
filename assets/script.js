@@ -18,20 +18,23 @@ const questions = [
         ]
     }
 ];
-    // Questions not changing - 
+    // Questions not changing - s on const question
+const startButton = document.getElementById("start-btn");
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
- 
+
+
 function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
     showQuestion();
 }
+
 
 function showQuestion() {
     resetState();
@@ -76,7 +79,7 @@ function selectAnswer(e) {
     });
     nextButton.style.display = "block";
 }
-
+// Reminder of these``
 function showScore() {
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
@@ -99,24 +102,11 @@ nextButton.addEventListener("click", ()=>{
         handleNextButton();
     }
     else {
-        startQuiz();
+        showScore();
     }
 });
 
-function saveScore () {
-    var saveScore = localStorage.getItem("score");
-    if (saveScore) {
-        saveScore = JSON.parse(saveScore);
-    }
-    else {
-        saveScore = []
-    }
-    saveScore.push({
-        initials: "",
-        score: score,
-    })
-    localStorage.setItem("score",JSON.stringify(saveScore));
-}
+
 
 startQuiz();
 

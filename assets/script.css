@@ -29,12 +29,31 @@ body {
 
 .quiz {
     padding: 20px 0;
+    display: block;
 }
 
 .quiz h2 {
     font-size: 22px;
     color: rgb(221, 178, 25);
     font-weight: 500;
+}
+
+p {
+    margin: 10px;
+}
+
+#start-btn {
+    background-color: rgb(221, 178, 25);
+    color: #bd2121;
+    font-weight: 500;
+    width: 150px;
+    border: 1px solid #222;
+    padding: 10px;
+    margin: 20px auto 20px;
+    text-align: center;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
 }
 
 .btn {
