@@ -26,8 +26,13 @@ const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
+var timeEl = document.getElementById("time");
+var secondsLeft = 30;
+
 let currentQuestionIndex = 0;
 let score = 0;
+
+
 
 function showDiv(event) {
     event.preventDefault(); 
@@ -48,6 +53,27 @@ function startQuiz() {
     score = 0;
     nextButton.innerHTML = "Next";
     showQuestion();
+}
+
+function setTime(_event) {
+    var timerInterval = setInterval(function() {
+        secondsLeft--;
+        timeEl.textContent = secondsLeft + " Time left to complete Quiz";
+
+        if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+            nextButton.innerHTML = "Submit";
+            nextButton.style.display = "block";
+        }
+    }, 1000)
+}
+
+startButton.addEventListener("click", setTime);
+
+function deductTime() {
+    const selectedBtn = e.target;
+    const isIncorrect = selectedBtn.dataset.incorrect === "false";
+    
 }
 
 
@@ -98,7 +124,7 @@ function selectAnswer(e) {
 function showScore() {
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
-    nextButton.innerHTML = "Play Again";
+    nextButton.innerHTML = "Submit";
     nextButton.style.display = "block";
 }
 // missing s on questions caused next question interuption
