@@ -103,3 +103,12 @@ p {
     background: #ff9393;
 }
 
+#submit h3 {
+    font-size: 22px;
+    color: rgb(221, 178, 25);
+    font-weight: 500;
+}
+
+form {
+    margin: 10px;
+}

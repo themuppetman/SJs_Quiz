@@ -26,6 +26,7 @@ const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
+
 var timeEl = document.getElementById("time");
 var secondsLeft = 30;
 
@@ -141,13 +142,36 @@ function handleNextButton() {
 }
 
 nextButton.addEventListener("click", ()=>{
+    var score = document.querySelector("#score").value;
+    var initials = document.querySelector("#initials").value;
     if (currentQuestionIndex < questions.length) {
         handleNextButton();
     }
     else {
         showScore();
     }
+
+
+    localStorage.setItem("score", score);
+    localStorage.setItem("initials", initials);
 });
+
+nextButton.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    var score = document.querySelector("#score").value;
+    var initials = document.querySelector("#initials").value;
+
+    
+
+
+
+ localStorage.setItem("score", score);
+ localStorage.setItem("initials", initials);
+})
+
+
+
 
 
 
