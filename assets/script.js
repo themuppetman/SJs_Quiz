@@ -58,7 +58,7 @@ function startQuiz() {
 function setTime(_event) {
     const timerInterval = setInterval(function() {
         secondsLeft--;
-        timeEl.textContent = secondsLeft + " Time left to complete Quiz";
+        timeEl.textContent = secondsLeft + "Time left to complete Quiz";
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
             nextButton.innerHTML = "Submit";
@@ -70,27 +70,12 @@ function setTime(_event) {
 startButton.addEventListener("click", setTime);
 
 function deductTime() {
-    const isIncorrect = selectedBtn.dataset.correct === "false";
-    if (isIncorrect) {
-        setInterval(deductTime, -5000);
-    }
+    secondsLeft -= 5;
 }
 
 
-// function deductTime() {
-//      var isIncorrect = selectedBtn.dataset.incorrect === "false";
-//     if (isIncorrect) {
-//         timerInterval = secondsLeft - 5;
-//     }
-// }
 
 
-// function deductTime() {
-//     const selectedBtn = e.target;
-//     const isIncorrect = selectedBtn.dataset.incorrect === "false";
-// }
-
-// deductTime();
 
 function showQuestion() {
     resetState();
@@ -127,6 +112,7 @@ function selectAnswer(e) {
     }
     else {
         selectedBtn.classList.add("incorrect");
+        deductTime();
     }
     Array.from(answerButtons.children).forEach(button => {
         if(button.dataset.correct === "true"){
