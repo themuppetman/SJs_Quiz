@@ -103,6 +103,10 @@ p {
     background: #ff9393;
 }
 
+.submit {
+    display: none;
+}
+
 #submit h3 {
     font-size: 22px;
     color: rgb(221, 178, 25);
@@ -111,4 +115,9 @@ p {
 
 form {
     margin: 10px;
+}
+
+input {
+    background-color: aliceblue;
+    padding: 10px;
 }

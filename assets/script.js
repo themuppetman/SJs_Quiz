@@ -142,8 +142,8 @@ function handleNextButton() {
 }
 
 nextButton.addEventListener("click", ()=>{
-    var score = document.querySelector("#score").value;
-    var initials = document.querySelector("#initials").value;
+    // var score = document.querySelector("#score").value;
+    // var initials = document.querySelector("#initials").value;
     if (currentQuestionIndex < questions.length) {
         handleNextButton();
     }
@@ -156,19 +156,19 @@ nextButton.addEventListener("click", ()=>{
     localStorage.setItem("initials", initials);
 });
 
-nextButton.addEventListener("click", function(event) {
-    event.preventDefault();
+// nextButton.addEventListener("click", function(event) {
+//     event.preventDefault();
 
-    var score = document.querySelector("#score").value;
-    var initials = document.querySelector("#initials").value;
+//     var score = document.querySelector("#score").value;
+//     var initials = document.querySelector("#initials").value;
 
     
 
 
 
- localStorage.setItem("score", score);
- localStorage.setItem("initials", initials);
-})
+//  localStorage.setItem("score", score);
+//  localStorage.setItem("initials", initials);
+// })
 
 
 
