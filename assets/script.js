@@ -2,23 +2,23 @@ const questions = [
     {
         question: "What are arrays enclosed in?",
         answers: [
-            { text: "Square Brackets", correct: true},
-            { text: "Curly Brackets", correct: false},
-            { text: "Parentheses", correct: false},
-            { text: "Single Quotes", correct: false},   
+            { text: "Square Brackets", correct: true },
+            { text: "Curly Brackets", correct: false },
+            { text: "Parentheses", correct: false },
+            { text: "Single Quotes", correct: false },
         ]
     },
     {
         question: "Who originally wrote Javascript?",
         answers: [
-            { text: "Jordan Walke", correct: false},
-            { text: " Tim Berners-Lee", correct: false},
-            { text: "Brendan Eich", correct: true},
-            { text: "James Gosling", correct: false},   
+            { text: "Jordan Walke", correct: false },
+            { text: " Tim Berners-Lee", correct: false },
+            { text: "Brendan Eich", correct: true },
+            { text: "James Gosling", correct: false },
         ]
     }
 ];
-    // Questions not changing - s on const question
+// Questions not changing - s on const question
 const quizDiv = document.getElementById("quiz");
 const welcomeEl = document.getElementById("welcome-div");
 const startButton = document.getElementById("start-btn");
@@ -34,9 +34,8 @@ let currentQuestionIndex = 0;
 let score = 0;
 
 
-
 function showDiv(event) {
-    event.preventDefault(); 
+    event.preventDefault();
     quizDiv.style.display = "block";
 };
 
@@ -57,13 +56,12 @@ function startQuiz() {
 }
 
 function setTime(_event) {
-    const timerInterval = setInterval(function() {
+    const timerInterval = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = secondsLeft + "Time left to complete Quiz";
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
-            nextButton.innerHTML = "Submit";
-            nextButton.style.display = "block";
+            nextButton.style.display = "none";
         }
     }, 1000)
 }
@@ -89,17 +87,17 @@ function showQuestion() {
         button.innerHTML = answer.text;
         button.classList.add("btn");
         answerButtons.appendChild(button);
-        if(answer.correct) {
+        if (answer.correct) {
             button.dataset.correct = answer.correct;
         }
         button.addEventListener("click", selectAnswer);
     });
 }
 
- 
+
 function resetState() {
     nextButton.style.display = "none";
-    while(answerButtons.firstChild) { 
+    while (answerButtons.firstChild) {
         answerButtons.removeChild(answerButtons.firstChild);
     }
 }
@@ -107,7 +105,7 @@ function resetState() {
 function selectAnswer(e) {
     const selectedBtn = e.target;
     const isCorrect = selectedBtn.dataset.correct === "true";
-    if(isCorrect) {
+    if (isCorrect) {
         selectedBtn.classList.add("correct");
         score++;
     }
@@ -116,8 +114,8 @@ function selectAnswer(e) {
         deductTime();
     }
     Array.from(answerButtons.children).forEach(button => {
-        if(button.dataset.correct === "true"){
-            button.classList.add("correct");    
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
         }
         button.disabled = true;
     });
@@ -127,21 +125,22 @@ function selectAnswer(e) {
 function showScore() {
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
-    nextButton.innerHTML = "Submit";
-    nextButton.style.display = "block";
+    nextButton.style.display = "none";
 }
 // missing s on questions caused next question interuption
 function handleNextButton() {
     currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length){
+    if (currentQuestionIndex < questions.length) {
         showQuestion();
     }
     else {
         showScore();
+        time.style.display = "none";
+        submit.style.display = "block";
     }
 }
 
-nextButton.addEventListener("click", ()=>{
+nextButton.addEventListener("click", () => {
     // var score = document.querySelector("#score").value;
     // var initials = document.querySelector("#initials").value;
     if (currentQuestionIndex < questions.length) {
@@ -151,31 +150,31 @@ nextButton.addEventListener("click", ()=>{
         showScore();
     }
 
-
-    localStorage.setItem("score", score);
-    localStorage.setItem("initials", initials);
 });
 
-// nextButton.addEventListener("click", function(event) {
-//     event.preventDefault();
+function submitScore() {
+    var score = document.querySelector("#score").value;
+    var initials = document.querySelector("#initials").value;
+    var dataObject = {
+        score: score,
+        initials: initials,
+    };
 
-//     var score = document.querySelector("#score").value;
-//     var initials = document.querySelector("#initials").value;
+    console.log 
+    localStorage.setItem("score", score);
+    localStorage.setItem("initials", initials);
+}
 
-    
+startQuiz();
+
 
 
 
 //  localStorage.setItem("score", score);
 //  localStorage.setItem("initials", initials);
-// })
 
 
 
-
-
-
-startQuiz();
 
 
 
