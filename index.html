@@ -27,18 +27,18 @@
             <button id="next-btn">Next</button>
         </div>
         <div class="container-timer">
-            <h3 id="time" style="text-align:center; padding: auto;">Total Time : <br> (00: <span id="time">00</span>)</h3>
+            <h3 id="time" style="text-align:center; padding: auto;">Total Time : <br> (00: <span id="time">00</span>) <br> </h3>
             <!--<h5 class="card-text float-right font-weight-bold">Total Time : <br> (00: <span id="time">00</span>)</h5>-->     
        </div>
-       <div class="submit" id="submit">
-            <h3 id="submit_score">Submit Score</h3>
-            <form id="score_form">
-                <label for="score">Score:</label>
-                <input for="text" placeholder="Score" name="score_text" id="score_text">
-                <label for="initials">Initials:</label>
-                <input type="text" placeholder="Enter Initials Here" name="initial_text" id="initial_text"/>
-            </form>
+       <div id="submit-div" style="display: none;">
+            <input type="text" id="initials" placeholder="Enter your initials">
+            <button onclick="submitScore()" id="submit-btn">Submit</button>
        </div>
+    
+       <div id="final-score-div" style="display: none;">
+            <p id="final-score"></p>
+       </div>
+    
     </div>
 <script src="assets/script.js"></script>
 </body>

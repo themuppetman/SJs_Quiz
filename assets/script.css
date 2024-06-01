@@ -103,7 +103,7 @@ p {
     background: #ff9393;
 }
 
-.submit {
+.submit-div {
     display: none;
 }
 
@@ -111,6 +111,18 @@ p {
     font-size: 22px;
     color: rgb(221, 178, 25);
     font-weight: 500;
+}
+
+#submit-btn {
+    background-color: rgb(221, 178, 25);
+    color: #bd2121;
+    font-weight: 500;
+    width: 150px;
+    border: 1px solid #222;
+    padding: 10px;
+    margin: 10px auto 0;
+    text-align: left;
+    border-radius: 4px;
 }
 
 form {

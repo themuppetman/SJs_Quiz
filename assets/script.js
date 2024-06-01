@@ -12,11 +12,30 @@ const questions = [
         question: "Who originally wrote Javascript?",
         answers: [
             { text: "Jordan Walke", correct: false },
-            { text: " Tim Berners-Lee", correct: false },
+            { text: "Tim Berners-Lee", correct: false },
             { text: "Brendan Eich", correct: true },
             { text: "James Gosling", correct: false },
         ]
+    },
+    {
+        question: "What type of phrase writing is this: codingIsFun?",
+        answers: [
+            { text: "Serpent Case", correct: false },
+            { text: "Snake Case", correct: false },
+            { text: "Humpback Case", correct: false },
+            { text: "Camel Case", correct: true },
+        ]
+    },
+    {
+        question: "From what company did React's original author hail from?",
+        answers: [
+            { text: "Instagram", correct: false },
+            { text: "Google", correct: false }, 
+            { text: "Meta", correct: true }, 
+            { text: "The Facebook", correct: false },
+        ]
     }
+
 ];
 // Questions not changing - s on const question
 const quizDiv = document.getElementById("quiz");
@@ -25,6 +44,9 @@ const startButton = document.getElementById("start-btn");
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
+const submitButton = document.getElementById("submit-btn"); //Implemented for Enter key to trigger Submit button
+const initialsInput = document.getElementById("initials");
+
 
 
 var timeEl = document.getElementById("time");
@@ -58,12 +80,13 @@ function startQuiz() {
 function setTime(_event) {
     const timerInterval = setInterval(function () {
         secondsLeft--;
-        timeEl.textContent = secondsLeft + "Time left to complete Quiz";
+        timeEl.textContent = secondsLeft + " Time left to complete Quiz";
         if (secondsLeft === 0) {
             clearInterval(timerInterval);
             nextButton.style.display = "none";
+            showScore(); // Show score if time runs out
         }
-    }, 1000)
+    }, 1000);
 }
 
 startButton.addEventListener("click", setTime);
@@ -71,9 +94,6 @@ startButton.addEventListener("click", setTime);
 function deductTime() {
     secondsLeft -= 5;
 }
-
-
-
 
 
 function showQuestion() {
@@ -126,6 +146,7 @@ function showScore() {
     resetState();
     questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
     nextButton.style.display = "none";
+    document.getElementById("submit-div").style.display = "block"; // Show submit form
 }
 // missing s on questions caused next question interuption
 function handleNextButton() {
@@ -136,9 +157,9 @@ function handleNextButton() {
     else {
         showScore();
         time.style.display = "none";
-        submit.style.display = "block";
     }
 }
+
 
 nextButton.addEventListener("click", () => {
     // var score = document.querySelector("#score").value;
@@ -149,12 +170,16 @@ nextButton.addEventListener("click", () => {
     else {
         showScore();
     }
+    if (secondsLeft === 0) {
+        clearInterval(timerInterval);
+        nextButton.style.display = "none";
+        showScore(); 
+        }    
 
 });
 
 function submitScore() {
-    var score = document.querySelector("#score").value;
-    var initials = document.querySelector("#initials").value;
+    var initials = document.getElementById("initials").value;
     var dataObject = {
         score: score,
         initials: initials,
@@ -163,15 +188,28 @@ function submitScore() {
     console.log 
     localStorage.setItem("score", score);
     localStorage.setItem("initials", initials);
+
+    document.getElementById("final-score").innerHTML = `Score: ${score}, Initials: ${initials}`;
+    document.getElementById("submit-div").style.display = "none";
+    document.getElementById("final-score-div").style.display = "block"; // Show final score
 }
+
+// Because I wanted have the Enter key trigger the submit button, 
+// I decided to NOT make the submit div go away in initials were
+// entered incorrectly.
+
+initialsInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        event.preventDefault(); // Prevent the default if needed
+        submitButton.click(); // Trigger the button click
+    }
+});
+
 
 startQuiz();
 
 
 
-
-//  localStorage.setItem("score", score);
-//  localStorage.setItem("initials", initials);
 
 
 
