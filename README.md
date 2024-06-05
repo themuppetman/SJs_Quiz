@@ -1,4 +1,4 @@
-# Seth Jackson's Note Taker
+# Seth Jackson's Coding Quiz
   by Seth Jackson (Seth Shows Dev) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)  
   
   ## Table of Contents
@@ -11,7 +11,7 @@
   - [License](#license)
   
   ## Description
-  This is a simple application, where the user can create, save, and edit notes including a note title.   
+  This application is a four question , multiple choice, coding quiz to test your development knowledge. 
   
   ## Installation
   N\A  
